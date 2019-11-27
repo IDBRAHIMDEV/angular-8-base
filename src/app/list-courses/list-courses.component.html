@@ -3,14 +3,27 @@
 <div class="container">
   <div class="row mt-5">
       <div class="col-6 mx-auto">
+          <img [src]=" image " alt="">
+          
             <input class="form-control" type="text" [(ngModel)]="myCourse">
-            <button (click)="addCourse()" class="btn btn-block mt-2 btn-danger">
+            <button (click)="addCourse()" class="btn btn-block mt-2 btn-dark">
                <i class="fa fa-send"></i>  Add
             </button>
            
+            
             <ul class="list-group">
-                <li *ngFor="let course of courses" class="list-group-item">
+                <li *ngFor="let course of courses" class="list-group-item"> 
+                   <div class="text fa-pull-right">
+                    <button (click)="editCourse(course)" class="mr-1 btn-sm btn btn-warning">
+                    <i class="fa fa-send"></i>  Edit
+                
+                 </button>
+                 <button (click)="deleteCourse()" class=" btn-sm btn btn-danger">
+                        <i class="fa fa-send"></i>  Delete
+                     </button>
+                    </div>
                     {{ course }}
+                
                 </li>
             </ul>
       </div>

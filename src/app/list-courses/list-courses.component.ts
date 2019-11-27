@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-courses.component.css']
 })
 export class ListCoursesComponent {
+image="https://picsum.photos/id/400/800/300";
 
     myCourse: string = 'Learn Angular';
     
@@ -13,10 +14,12 @@ export class ListCoursesComponent {
     
     num1: number = 0;
     num2: number = 0;
-
-    addCourse() {
-      this.courses.push(this.myCourse);
-      this.myCourse = "";
+    addCourse(){
+      // this.courses.unshift(this.myCourse);
+      this.courses=[this.myCourse,...this.courses];
+      this.myCourse="";
+      }
+    
     }
 
-}
+
