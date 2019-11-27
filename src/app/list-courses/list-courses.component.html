@@ -14,11 +14,12 @@
             <ul class="list-group">
                 <li *ngFor="let course of courses" class="list-group-item">
                    <div class="text fa-pull-right">
+                    
                     <button (click)="editCourse(course)" class="mr-1 btn-sm btn btn-warning">
                     <i class="fa fa-send"></i>  Edit
 
                  </button>
-                 <button (click)="deleteCourse()" class=" btn-sm btn btn-danger">
+                 <button (click)="deleteCourse(i)" class=" btn-sm btn btn-danger">
                         <i class="fa fa-send"></i>  Delete
                      </button>
                     </div>

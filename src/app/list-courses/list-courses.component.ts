@@ -29,8 +29,13 @@ export class ListCoursesComponent {
     console.log(this.myCourse);
   }
   
-  deleteCourse() {
+  deleteCourse(index) {
     let isYes = confirm("Are you sure");
+
+    if(isYes) {
+     
+      this.courses.splice(index, 1);
+    }
   }
 
 }
