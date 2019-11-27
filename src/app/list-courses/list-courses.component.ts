@@ -7,20 +7,30 @@ import { Component } from '@angular/core';
 })
 export class ListCoursesComponent {
 
+  image = "https://picsum.photos/id/400/800/300";
+
   myCourse: string = 'Learn Angular';
-  image = "https://picsum.photos/id/237/535/200"
+
   courses: string[] = ['Angular', 'Spring', 'Laravel'];
 
   num1: number = 0;
   num2: number = 0;
 
   addCourse() {
-    this.courses = [this.myCourse, ...this.courses];
-    this.myCourse = "";
+    // this.courses.push(this.myCourse);
+    if (this.myCourse.length > 0) {
+      this.courses = [...this.courses, this.myCourse];
+      this.myCourse = "";
+    }
   }
-  editCourse(course:string) {
-    this.myCourse= course;
+
+  editCourse(course: string) {
+    this.myCourse = course;
     console.log(this.myCourse);
+  }
+  
+  deleteCourse() {
+    let isYes = confirm("Are you sure");
   }
 
 }
