@@ -7,16 +7,20 @@ import { Component } from '@angular/core';
 })
 export class ListCoursesComponent {
 
-    myCourse: string = 'Learn Angular';
-    
-    courses: string[] = ['Angular', 'Spring', 'Laravel'];
-    
-    num1: number = 0;
-    num2: number = 0;
+  myCourse: string = 'Learn Angular';
 
-    addCourse() {
-      this.courses.push(this.myCourse);
-      this.myCourse = "";
-    }
+  courses: string[] = ['Angular', 'Spring', 'Laravel'];
+
+  num1: number = 0;
+  num2: number = 0;
+
+  addCourse() {
+    this.courses.push(this.myCourse);
+    this.myCourse = "";
+  }
+
+  deleteCourse() {
+    let isYes = confirm("Are you sure");
+  }
 
 }
