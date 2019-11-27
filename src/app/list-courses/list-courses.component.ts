@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-courses.component.css']
 })
 export class ListCoursesComponent {
-image ="https://picsum.photos/200/300";
+
+image="https://picsum.photos/id/400/800/300";
+
     myCourse: string = 'Learn Angular';
     
     courses: string[] = ['Angular', 'Spring', 'Laravel'];
@@ -25,4 +27,4 @@ image ="https://picsum.photos/200/300";
      
     }
 
-}
+  }
