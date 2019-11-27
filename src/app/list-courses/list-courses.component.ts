@@ -7,16 +7,20 @@ import { Component } from '@angular/core';
 })
 export class ListCoursesComponent {
 
-    myCourse: string = 'Learn Angular';
-    
-    courses: string[] = ['Angular', 'Spring', 'Laravel'];
-    
-    num1: number = 0;
-    num2: number = 0;
+  myCourse: string = 'Learn Angular';
+  image = "https://picsum.photos/id/237/535/200"
+  courses: string[] = ['Angular', 'Spring', 'Laravel'];
 
-    addCourse() {
-      this.courses.push(this.myCourse);
-      this.myCourse = "";
-    }
+  num1: number = 0;
+  num2: number = 0;
+
+  addCourse() {
+    this.courses = [this.myCourse, ...this.courses];
+    this.myCourse = "";
+  }
+  editCourse(course:string) {
+    this.myCourse= course;
+    console.log(this.myCourse);
+  }
 
 }
