@@ -19,6 +19,10 @@ export class ListCoursesComponent {
     this.myCourse = "";
   }
 
+  editCourse(course: string) {
+    this.myCourse = course;
+    console.log(this.myCourse);
+  }
   deleteCourse() {
     let isYes = confirm("Are you sure");
   }
