@@ -3,7 +3,11 @@
 <div class="container">
   <div class="row mt-5">
       <div class="col-6 mx-auto">
+          <img [src]="image" alt="" width="300px">
             <input class="form-control" type="text" [(ngModel)]="myCourse">
+            <div class="alert alert-info" role="alert">
+                    Le nombre des enregistrements est de: {{ courses.length }}
+                  </div>
             <button (click)="addCourse()" class="btn btn-block mt-2 btn-danger">
                <i class="fa fa-send"></i>  Add
             </button>
