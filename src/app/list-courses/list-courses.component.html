@@ -3,7 +3,14 @@
 <div class="container">
   <div class="row mt-5">
       <div class="col-6 mx-auto">
-            <input class="form-control" type="text" [(ngModel)]="myCourse">
+             
+           <img [src]="image" alt="">
+
+            <input class="form-control" type="text" 
+            [ngModel]="myCourse">
+
+            {{ myCourse }}
+            
             <button (click)="addCourse()" class="btn btn-block mt-2 btn-danger">
                <i class="fa fa-send"></i>  Add
             </button>
