@@ -20,4 +20,8 @@ export class PostService {
   delete(id) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  update(post) {
+    return this.http.put(`${this.apiUrl}/${post.id}`, post);
+  }
 }

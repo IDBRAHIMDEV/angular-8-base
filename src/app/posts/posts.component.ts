@@ -87,7 +87,14 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost() {
-
+     this.postService.update(this.post).subscribe(res => {
+       this.post = {
+         title: '',
+         body: ''
+       }
+       this.display = false;
+       this.editable = false;
+     })
   }
 
 }
