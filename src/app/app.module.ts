@@ -11,6 +11,8 @@ import { IntroComponent } from './intro/intro.component';
 import { ContentComponent } from './content/content.component';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     FooterComponent,
     IntroComponent,
-    ContentComponent
+    ContentComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

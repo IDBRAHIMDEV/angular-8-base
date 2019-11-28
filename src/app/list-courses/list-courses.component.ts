@@ -7,34 +7,66 @@ import { Component } from '@angular/core';
 })
 export class ListCoursesComponent {
 
+  editAction: boolean = false;
+
   image = "https://picsum.photos/id/400/800/300";
 
-  myCourse: string = 'Learn Angular';
+  myCourse: any = {
+    id: 0,
+    name: ""
+  };
 
-  courses: string[] = ['Angular', 'Spring', 'Laravel'];
+  courses: any[] = [
+    {
+      id: 1,
+      name: "Angular"
+    },
+    {
+      id: 2,
+      name: "NodeJS"
+    },
+    {
+      id: 3,
+      name: "Spring boot"
+    }
+  ];
 
   num1: number = 0;
   num2: number = 0;
 
   addCourse() {
     // this.courses.push(this.myCourse);
-    if (this.myCourse.length > 0) {
+    if (this.myCourse.name != '') {
       this.courses = [...this.courses, this.myCourse];
-      this.myCourse = "";
+      this.initCourse();
     }
   }
 
-  editCourse(course: string) {
+  editCourse(course: any) {
     this.myCourse = course;
-    console.log(this.myCourse);
+    this.editAction = true;
   }
   
-  deleteCourse(index) {
+  deleteCourse(id) {
     let isYes = confirm("Are you sure");
 
     if(isYes) {
      
-      this.courses.splice(index, 1);
+      this.courses = this.courses.filter(course => course.id !== id)
+      //  this.courses.splice(index, 1);
+
+    }
+  }
+
+  updateCourse() {
+    this.editAction = false;
+    this.initCourse();
+  }
+
+  initCourse() {
+    this.myCourse = {
+      id: 0,
+      name: ''
     }
   }
 
