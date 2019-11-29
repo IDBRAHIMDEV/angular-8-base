@@ -33,19 +33,25 @@ export class PostsComponent implements OnInit {
     })
   }
 
-  persistPost() {
-    this.postService.persist(this.post).subscribe(res => {
+  persistPost(form) {
+    
+     if(form.invalid) {
+      alert('sir tan3asss')
+      return;
+     }
+        this.postService.persist(this.post).subscribe(res => {
+          
+          this.ourPosts = [res, ...this.ourPosts];
+          
+          this.post = {
+            title: '',
+            body: ''
+          }
+    
+          this.display = false;
+    
+        });
      
-      this.ourPosts = [res, ...this.ourPosts];
-      
-      this.post = {
-        title: '',
-        body: ''
-      }
-
-      this.display = false;
-
-    });
   }
 
   displayForm() {
@@ -95,6 +101,17 @@ export class PostsComponent implements OnInit {
        this.display = false;
        this.editable = false;
      })
+  }
+
+  changeStatusPost(myPost) {
+    myPost.active = !myPost.active;
+    this.postService.changeStatus(myPost).subscribe((p: any) => {
+      
+    })
+  }
+
+  log(data) {
+    console.log(data)
   }
 
 }

@@ -24,4 +24,10 @@ export class PostService {
   update(post) {
     return this.http.put(`${this.apiUrl}/${post.id}`, post);
   }
+
+  changeStatus(post) {
+    return this.http.patch(`${this.apiUrl}/${post.id}`, {active: post.active})
+  }
+
+
 }

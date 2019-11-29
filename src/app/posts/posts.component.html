@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-6">
-        <h1>List of posts</h1>
+        <h1 class="dispaly">List of posts</h1>
     </div>
     <div class="col-6 text-right mt-3">
         <button (click)="display = !display" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></button>
@@ -10,17 +10,63 @@
 
 <div *ngIf="display" class="row my-3">
     <div class="col-6 mx-auto">
+
+        <form #f="ngForm">
+
         <div class="form-group">
             <label for="title">Title</label>
-            <input [(ngModel)]="post.title" placeholder="Your Title" id="title" type="text" class="form-control">
+            <input 
+              required 
+              minlength="3" 
+              maxlength="10" 
+              pattern="[a-zA-Z0-9 ]+"  
+              name="title"
+              #title="ngModel" 
+              [(ngModel)]="post.title" 
+              placeholder="Your Title" 
+              id="title" 
+              type="text" 
+              class="form-control">
+
+            <div *ngIf="title.invalid && title.touched" class="alert alert-danger">
+                <div *ngIf="title.errors.required">This fieled is Required !</div>
+                <div *ngIf="title.errors.minlength">This field should be great than 
+                    {{ title.errors.minlength.actualLength }} / 
+                    {{ title.errors.minlength.requiredLength }} caracters !</div>
+                <div *ngIf="title.errors.pattern">This field is not respect our pattern !</div>
+            </div>
         </div>
+
+        
+
         <div class="form-group">
             <label for="body">Body</label>
-            <textarea [(ngModel)]="post.body" placeholder="Your Body" name="" id="body"  rows="2" class="form-control"></textarea>
+            <textarea 
+              required 
+              minlength="10" 
+              maxlength="100" 
+              pattern="[a-zA-Z0-9 ]+" 
+              #body="ngModel" 
+              [(ngModel)]="post.body" 
+              placeholder="Your Body" 
+              name="body"
+              id="body"  
+              rows="2" 
+              class="form-control">
+            </textarea>
+            <div *ngIf="body.invalid && body.touched" class="alert alert-danger">
+                    <div *ngIf="body.errors.required">This fieled is Required !</div>
+                    <div *ngIf="body.errors.minlength">This field should be great than 
+                        {{ body.errors.minlength.actualLength }} / 
+                        {{ body.errors.minlength.requiredLength }} caracters !</div>
+                    <div *ngIf="body.errors.pattern">This field is not respect our pattern !</div>
+                </div>
         </div>
         <button *ngIf="editable" (click)="updatePost()" class="btn btn-warning btn-block"><i class="fa fa-refresh"></i> Update</button>
 
-         <button *ngIf="!editable" (click)="persistPost()" class="btn btn-success btn-block"><i class="fa fa-send"></i> Save</button>
+         <button [disabled]="f.invalid" *ngIf="!editable " (click)="persistPost(f)" class="btn btn-success btn-block"><i class="fa fa-send"></i> Save</button>
+
+        </form>
     </div>
 </div>
 
@@ -41,10 +87,22 @@
                     <td>{{ post.title }}</td>
                     <td>{{ post.body }}</td>
                     <td nowrap class="text-right">
+
+                        <button 
+                        [ngClass]="{
+                            'btn-success': post.active,
+                            'btn-danger': !post.active
+                        }" 
+                        (click)="changeStatusPost(post)" 
+                        class="btn btn-sm mr-1">
+                            <i class="fa fa-power-off"></i>
+                        </button>
+                        
                         <button (click)="editPost(post)" class="btn btn-sm btn-warning mr-1">
                             <i class="fa fa-pencil"></i>
                         </button>
-                        <button (click)=" deletePost(post.id)" class="btn btn-sm btn-dark">
+
+                        <button (click)=" deletePost(post.id)" class="btn btn-sm btn-secondary">
                             <i class="fa fa-times"></i>
                         </button>
                     </td>

@@ -1,9 +1,20 @@
 {
   "posts": [
     {
+      "active": false,
+      "id": 1,
       "title": "Learn ReactJS",
-      "body": "Reactjs  framework 2",
-      "id": 1
+      "body": "vdvcvcv"
+    },
+    {
+      "title": "ddfdfdfdf",
+      "body": "dfdfdfdfdfdfdfdf",
+      "id": 6
+    },
+    {
+      "title": "dfdfgfgfg",
+      "body": "thfgjhghjghjghjkjhk",
+      "id": 7
     }
   ]
 }
