@@ -115,4 +115,8 @@ export class PostsComponent implements OnInit {
     console.log(data)
   }
 
+  searchPost() {
+    console.log("search")
+  }
+
 }
