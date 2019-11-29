@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class PostsComponent implements OnInit {
 
   genre = 'list';
+  search = "";
   display: boolean = false;
   editable: boolean = false;
 
@@ -20,6 +21,7 @@ export class PostsComponent implements OnInit {
   }
 
   ourPosts: any[] = [];
+  resultPosts: any[] = [];
 
   constructor(private postService: PostService) { }
 
@@ -29,7 +31,7 @@ export class PostsComponent implements OnInit {
 
   getAllPosts() {
     this.postService.getAll().subscribe((posts: any[]) => {
-        this.ourPosts = posts;
+        this.resultPosts = this.ourPosts = posts;
         console.log(this.ourPosts)
     })
   }
@@ -116,7 +118,10 @@ export class PostsComponent implements OnInit {
   }
 
   searchPost() {
-    console.log("search")
+    console.log(this.search)
+    this.resultPosts = this.ourPosts.filter(post => 
+        post.title.toLowerCase().includes(this.search.toLowerCase()) || 
+        post.body.toLowerCase().includes(this.search.toLowerCase()))
   }
 
 }

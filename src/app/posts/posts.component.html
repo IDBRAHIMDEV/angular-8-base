@@ -17,7 +17,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <input (keyup.control.arrowup)="searchPost()" type="search" placeholder="Search ..." class="form-control">
+        <input [(ngModel)]="search" (keyup)="searchPost()" type="search" placeholder="Search ..." class="form-control">
     </div>
 </div>
 <!-- .row>.col-md-12>input:search[placeholder=Search...].form-control -->
@@ -31,7 +31,7 @@
             <input 
               required 
               minlength="3" 
-              maxlength="10" 
+              maxlength="70" 
               pattern="[a-zA-Z0-9 ]+"  
               name="title"
               #title="ngModel" 
@@ -99,7 +99,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let post of ourPosts">
+                    <tr *ngFor="let post of resultPosts">
                         <td>{{ post.id }}</td>
                         <td>{{ post.title }}</td>
                         <td>{{ post.body }}</td>
@@ -133,7 +133,7 @@
 
 <ng-template #dataGrid>
     <div class="row" >
-            <div class="col-md-4" *ngFor="let post of ourPosts">
+            <div class="col-md-4" *ngFor="let post of resultPosts">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title }}</h4>

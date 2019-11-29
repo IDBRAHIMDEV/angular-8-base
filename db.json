@@ -5,6 +5,11 @@
       "id": 1,
       "title": "Learn ReactJS",
       "body": "vdvcvcv"
+    },
+    {
+      "title": "Learn Angular",
+      "body": "i want to learn my favorite framework angular",
+      "id": 2
     }
   ]
 }
