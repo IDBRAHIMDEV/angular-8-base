@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class PostsComponent implements OnInit {
 
+  genre = 'list';
   display: boolean = false;
   editable: boolean = false;
 

@@ -8,6 +8,13 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-12 my-2">
+        <button (click)="genre = 'list'" class="btn btn-sm mr-1"><i class="fa fa-list"></i></button>
+        <button (click)="genre = 'grid'" class="btn btn-sm"><i class="fa fa-th"></i></button>
+    </div>
+</div>
+
 <div *ngIf="display" class="row my-3">
     <div class="col-6 mx-auto">
 
@@ -70,7 +77,9 @@
     </div>
 </div>
 
-<div class="row">
+
+
+<div class="row" *ngIf="genre == 'list'">
     <div class="col-12">
         <table class="table table-striped">
             <thead>
@@ -111,3 +120,36 @@
         </table>
     </div>
 </div>
+
+
+<div class="row" *ngIf="genre == 'grid'">
+        <div class="col-md-4" *ngFor="let post of ourPosts">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <div class="card-text">
+                        <em>{{ post.body }}</em>
+                      <div>
+                            <button 
+                            [ngClass]="{
+                                'btn-success': post.active,
+                                'btn-danger': !post.active
+                            }" 
+                            (click)="changeStatusPost(post)" 
+                            class="btn btn-sm mr-1">
+                                <i class="fa fa-power-off"></i>
+                            </button>
+                            
+                            <button (click)="editPost(post)" class="btn btn-sm btn-warning mr-1">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+    
+                            <button (click)=" deletePost(post.id)" class="btn btn-sm btn-secondary">
+                                <i class="fa fa-times"></i>
+                            </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
