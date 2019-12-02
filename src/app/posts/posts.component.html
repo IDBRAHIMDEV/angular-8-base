@@ -105,7 +105,9 @@
                          {{ post.like }} - {{ post.disLike }}
                           <app-votes 
                             [my-like]="post.like" 
-                            [my-dislike]="post.disLike">
+                            [my-dislike]="post.disLike"
+                            (votesChildToParent)="incVote($event, post)"
+                            >
                           </app-votes>
                         </td>
                         <td>{{ post.id }}</td>

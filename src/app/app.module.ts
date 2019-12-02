@@ -11,11 +11,23 @@ import { IntroComponent } from './intro/intro.component';
 import { ContentComponent } from './content/content.component';
 
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
 import { SearchComponent } from './search/search.component';
 import { UsersComponent } from './users/users.component';
 import { VotesComponent } from './votes/votes.component';
+import { PanelComponent } from './panel/panel.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const routes = [
+  { path: '', redirectTo: '/courses', pathMatch: 'full' },
+  { path: 'courses', component: ListCoursesComponent },
+  { path: 'blog', component: PostsComponent },
+  { path: 'github', component: UsersComponent },
+  { path: '**', component: PageNotFoundComponent }
+]
 
 @NgModule({
   declarations: [
@@ -30,12 +42,15 @@ import { VotesComponent } from './votes/votes.component';
     PostsComponent,
     SearchComponent,
     UsersComponent,
-    VotesComponent
+    VotesComponent,
+    PanelComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
