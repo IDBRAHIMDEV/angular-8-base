@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class PostsComponent implements OnInit {
 
   genre = 'list';
-  search = "";
+
   display: boolean = false;
   editable: boolean = false;
 
@@ -117,11 +117,11 @@ export class PostsComponent implements OnInit {
     console.log(data)
   }
 
-  searchPost() {
-    console.log(this.search)
+  searchPost(data) {
+    console.log(data)
     this.resultPosts = this.ourPosts.filter(post => 
-        post.title.toLowerCase().includes(this.search.toLowerCase()) || 
-        post.body.toLowerCase().includes(this.search.toLowerCase()))
+        post.title.toLowerCase().includes(data.toLowerCase()) || 
+        post.body.toLowerCase().includes(data.toLowerCase()))
   }
 
 }

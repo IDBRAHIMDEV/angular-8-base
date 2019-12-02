@@ -17,7 +17,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <input [(ngModel)]="search" (keyup)="searchPost()" type="search" placeholder="Search ..." class="form-control">
+        <app-search (searchItems)="searchPost($event)"></app-search>
     </div>
 </div>
 <!-- .row>.col-md-12>input:search[placeholder=Search...].form-control -->

@@ -13,6 +13,8 @@ import { ContentComponent } from './content/content.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
+import { SearchComponent } from './search/search.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PostsComponent } from './posts/posts.component';
     FooterComponent,
     IntroComponent,
     ContentComponent,
-    PostsComponent
+    PostsComponent,
+    SearchComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

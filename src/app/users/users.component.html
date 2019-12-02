@@ -1,0 +1,28 @@
+
+<div class="row my-3">
+    <div class="col-md-12">
+        <h1>List of users</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <app-search (searchItems)="searchUser($event)"></app-search>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 my-2" *ngFor="let user of resultUsers">
+        <div class="card">
+            <img class="card-img-top" [src]="user.avatar_url" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{ user.login }}</h4>
+                <div class="card-text">
+                    <button class="btn btn-block btn-success">
+                      <a class="btn btn-link text-secondary" [href]="user.html_url"><i class="fa fa-user"></i> Checkout...</a>  
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
