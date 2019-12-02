@@ -124,4 +124,28 @@ export class PostsComponent implements OnInit {
         post.body.toLowerCase().includes(data.toLowerCase()))
   }
 
+  incLike(post) {
+     
+    if(post.like) {
+      post.like++;
+    }
+    else {
+      post.like = 1;
+    }
+
+    this.postService.incLikeToDB(post).subscribe(() => console.log('incl'))
+  }
+
+  incDisLike(post) {
+    if(post.disLike) {
+      post.disLike++;
+    }
+    else {
+      post.disLike = 1;
+    }
+
+    this.postService.incDisLikeToDB(post).subscribe(() => console.log('incDis'))
+
+  }
+
 }

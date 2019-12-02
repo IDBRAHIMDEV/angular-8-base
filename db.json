@@ -4,12 +4,16 @@
       "active": false,
       "id": 1,
       "title": "Learn ReactJS",
-      "body": "vdvcvcv"
+      "body": "vdvcvcv",
+      "like": 3,
+      "disLike": 1
     },
     {
       "title": "Learn Angular",
       "body": "i want to learn my favorite framework angular",
-      "id": 2
+      "id": 2,
+      "like": 10,
+      "disLike": 1
     }
   ]
 }

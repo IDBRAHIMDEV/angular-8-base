@@ -29,5 +29,12 @@ export class PostService {
     return this.http.patch(`${this.apiUrl}/${post.id}`, {active: post.active})
   }
 
+  incLikeToDB(post) {
+    return this.http.patch(`${this.apiUrl}/${post.id}`, {like: post.like})
+  }
+
+  incDisLikeToDB(post) {
+    return this.http.patch(`${this.apiUrl}/${post.id}`, {disLike: post.disLike})
+  }
 
 }

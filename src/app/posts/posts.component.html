@@ -92,6 +92,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Id</th>
                         <th>Title</th>
                         <th>Body</th>
@@ -100,6 +101,17 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let post of resultPosts">
+                        <td>
+                            <button (click)="incLike(post)" class="btn btn-sm btn-success mr-3">
+                                <i class="fa fa-thumbs-up"></i>
+                                <span class="badge badge-light">{{ post.like }}</span>
+                            </button>
+
+                            <button (click)="incDisLike(post)" class="btn btn-sm btn-danger">
+                                <i class="fa fa-thumbs-down"></i>
+                                <span class="badge badge-light">{{ post.disLike }}</span>
+                            </button>
+                        </td>
                         <td>{{ post.id }}</td>
                         <td>{{ post.title }}</td>
                         <td>{{ post.body }}</td>
