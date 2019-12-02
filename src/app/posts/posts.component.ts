@@ -135,7 +135,6 @@ export class PostsComponent implements OnInit {
 
     this.postService.incLikeToDB(post).subscribe(() => console.log('incl'))
   }
-
   incDisLike(post) {
     if(post.disLike) {
       post.disLike++;
@@ -145,7 +144,6 @@ export class PostsComponent implements OnInit {
     }
 
     this.postService.incDisLikeToDB(post).subscribe(() => console.log('incDis'))
-
   }
 
 }

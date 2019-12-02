@@ -102,15 +102,11 @@
                 <tbody>
                     <tr *ngFor="let post of resultPosts">
                         <td>
-                            <button (click)="incLike(post)" class="btn btn-sm btn-success mr-3">
-                                <i class="fa fa-thumbs-up"></i>
-                                <span class="badge badge-light">{{ post.like }}</span>
-                            </button>
-
-                            <button (click)="incDisLike(post)" class="btn btn-sm btn-danger">
-                                <i class="fa fa-thumbs-down"></i>
-                                <span class="badge badge-light">{{ post.disLike }}</span>
-                            </button>
+                         {{ post.like }} - {{ post.disLike }}
+                          <app-votes 
+                            [my-like]="post.like" 
+                            [my-dislike]="post.disLike">
+                          </app-votes>
                         </td>
                         <td>{{ post.id }}</td>
                         <td>{{ post.title }}</td>

@@ -6,13 +6,13 @@
       "title": "Learn ReactJS",
       "body": "vdvcvcv",
       "like": 3,
-      "disLike": 1
+      "disLike": 10
     },
     {
       "title": "Learn Angular",
       "body": "i want to learn my favorite framework angular",
       "id": 2,
-      "like": 10,
+      "like": 12,
       "disLike": 1
     }
   ]

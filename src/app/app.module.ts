@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './posts/posts.component';
 import { SearchComponent } from './search/search.component';
 import { UsersComponent } from './users/users.component';
+import { VotesComponent } from './votes/votes.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UsersComponent } from './users/users.component';
     ContentComponent,
     PostsComponent,
     SearchComponent,
-    UsersComponent
+    UsersComponent,
+    VotesComponent
   ],
   imports: [
     BrowserModule,
